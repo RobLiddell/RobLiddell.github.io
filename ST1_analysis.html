@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+		<title>Robert Liddell</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+
+    <body class="is-preload">
+
+		<!-- Nav -->
+        <nav id="nav">
+            <ul class="container">
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+
+   		<!-- Portfolio -->
+		<article id="portfolio" class="wrapper style3">
+			<h1><strong>Nonlinear Analysis of Nano- and Micro- scale Topographies on Dental Implant Anchorage Tested in Shear and Tension</strong></h1>
+			<h3>By: Robert Liddell</h3>
+			<h3>2017</h3>
+		</article>
+
+		<article id="portfolio" class="wrapper style2">
+			<h2>Goal</h2>
+			<p>Determine the effect implant topography has on the growth of bone anchorage.</p>
+			<h3>Background</h3>
+			<p>Dental implants are treated in many different ways in an attempt to
+				improve bone growth around them and increase bone anchorage. The better
+				the implant is anchored by bone the less likely the implant is to
+				experience mobility and loosen with time which would require revision. A
+				commonly employed method of implant treatment are additive or
+				subtractive process which increase implant topographical complexity.
+				This study looked at the effect of adding nanoscale features to a
+				microtopographically complex surface. Furthermore, a majority of studies
+				focus on a narrow time scale. This study looked at implant anchorage
+				over a 6 month time frame.
+			</p>
+			<h2>Summary of Data</h2>
+			<p>The study was designed to place 240 implants (120/implant group) into
+				120 rats. with each implant being tested twice due to the lateral and
+				medial arches this would result in 480 different test files if all
+				samples were tested. These 480 different tests would be split between
+				the 2 testing methods (Shear/Tension), 2 implant types (BAE/BAE+DCD), 2
+				arches (Lateral/Medial), 2 animal sides (Left/Right) and 6 time points
+				(5/9/14/28/84/168 days). To simplify analysis this study will use the
+				mean of the two arches, dropping samples which do not have both
+				arches.
+			</p>
+			<table class="table default">
+				<caption>Table 1. N for each implant type and testing method</caption>
+				<thead>
+					<tr>
+						<th>Testing Method</th>
+						<th>Implant Type</th>
+						<th>Day 5</th>
+						<th>Day 9</th>
+						<th>Day 14</th>
+						<th>Day 28</th>
+						<th>Day 84</th>
+						<th>Day 168</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Tension</td>
+						<td>BAE</td>
+						<td>6</td>
+						<td>10</td>
+						<td>10</td>
+						<td>10</td>
+						<td>11</td>
+						<td>6</td>
+					</tr>
+					<tr>
+						<td>Tension</td>
+						<td>BAE+DCD</td>
+						<td>9</td>
+						<td>10</td>
+						<td>10</td>
+						<td>10</td>
+						<td>10</td>
+						<td>6</td>
+					</tr>
+					<tr>
+						<td>Shear</td>
+						<td>BAE</td>
+						<td>10</td>
+						<td>8</td>
+						<td>10</td>
+						<td>11</td>
+						<td>10</td>
+						<td>6</td>
+					</tr>
+					<tr>
+						<td>Shear</td>
+						<td>BAE+DCD</td>
+						<td>10</td>
+						<td>10</td>
+						<td>10</td>
+						<td>11</td>
+						<td>10</td>
+						<td>7</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>The graph below shows the distribution of data from the different
+				implant groups, testing methods, and time points. It is evident from
+				this figure that the data is heteroskedastic with the range of the data
+				getting larger at later points in time. It is also evident that BAE+DCD
+				implants have greater anchorage than the BAE implants, particularly at
+				early time points.
+			</p>
+			<img src="images\ST1\Data Summary-Box Plots-1.png", class="image centered"/>
+			<h2>Growth Curves</h2>
+			<p>Plotting the mean of anchorage (Figure 2.) of each time point on a
+				linear axis for time we can note that after an initial rapid increase in
+				anchorage, growth rate slows and appears to reach a plateau. This is
+				mirrored in Figure 3. which indicates the mean growth rates between each
+				time point.
+			</p>
+			<img src="images\ST1\Growth Rates-1.png", class="image centered"/>
+			<p>The growth rates show that there is an initial peak in the rate of
+				growth in anchorage between 5 and 9 days, after which anchorage growth
+				slows down significantly. While the trends between the two testing
+				methods are similar the BAE+DCD implant has a higher peak growth in
+				anchorage compared to the BAE implant.
+			</p>
+			<img src="images\ST1\means over time-1.png", class="image centered"/>
+			<h2>Non-linear Modeling</h2>
+			<p>This pattern of growth is characteristic of asymptotic growth. This
+				includes a number of potential models but for simplicity I used the
+				following function: <span class="math display">\[Anchorage=C \times
+				\left(1 - e^\dfrac{-Time}{\tau}\right)\]</span> This function was fit to
+				each experimental group individually in Figure 4. The horizontal lines
+				indicate the value of C, which is the eventual plateau level of the
+				curve. The dashed vertical lines are the value of <span class="math inline">\(\tau\)</span> (tau), and indicate how quickly
+				anchorage grows. Larger values of C indicate greater overall anchorage,
+				and smaller values of <span class="math inline">\(\tau\)</span> indicate
+				shorter times required for this anchorage to be achieved. Analysis was
+				one by taking 10000 bootstrap samples of the data and using the
+				nonlinear least squares method to fit the data. C and <span class="math inline">\(\tau\)</span> terms were extracted and used to
+				calculate 95% confidence intervals for the curves of best fit (Figure
+				4.) as well as the individual parameters (Figure 5).
+			</p>
+			<img src="images\ST1\Confidence Interval-1.png", class="image centered"/>
+			<img src="images\ST1\Parameter Comparison-1.png", class="image centered"/>
+			<h2>Conclusions</h2>
+			<p>I found that the addition of nanotopography significantly decreases the time 
+				required for implants to become securly anchored through a combination of 
+				faster rate of healing and stronger overall anchorage. </p>
+
+
+
+
+
+
+		</article>
+        <!-- Contact -->
+		<article id="contact" class="wrapper style4">
+			<div class="container medium">
+				<div class="row">
+					<div class="col-12">
+						<hr />
+						<h3>More on me:</h3>
+						<ul class="social">
+							<li><a href="www.linkedin.com/in/robert-liddell" class="icon brands fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/RobLiddell" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						</ul>
+						<hr />
+					</div>
+				</div>
+				<footer>
+					<ul id="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+			</div>
+		</article>
+
+		<!-- dynamically load mathjax for compatibility with self-contained -->
+		<script>
+			(function () {
+	  			var script = document.createElement("script");
+	  			script.type = "text/javascript";
+	  			script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+	  			document.getElementsByTagName("head")[0].appendChild(script);
+			})();
+  		</script>
+    </body>
+</html>
